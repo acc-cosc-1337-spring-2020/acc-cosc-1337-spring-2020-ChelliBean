@@ -1,3 +1,3 @@
 # acc-cosc-1337-starter
-# chellibean
+# CHELLIBEAN
 C++ starter code with CMake 
