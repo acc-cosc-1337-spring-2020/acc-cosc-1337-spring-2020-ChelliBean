@@ -39,7 +39,6 @@ int main()
 	//Example ---->>>     Gross pay: 150.00   
 
 	cout << "Gross pay: " << gross_salary;
-
+	return 0;
 }
 
-return 0;
