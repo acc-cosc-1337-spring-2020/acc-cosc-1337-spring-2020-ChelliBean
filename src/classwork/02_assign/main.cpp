@@ -5,25 +5,25 @@
 
 //Write namespace using statements for cout and cin
 
-using std::cin; using std::cout;
+using std::cout; using std::cin;
 
 int main()
 {
 	//create a double variable named hours
 
-	double hours;
-	double hourly_rate;
+	double hours, hourly_rate;
+	
 
 	//create a double variable named hourly_rate
 
 	//Prompt user for keyboard input for hours and hourly_rate
 
-	cout << "Enter hours";
+	cout << "Enter hours: ";
 	cin >> hours;
 
 	//save the input to variables hours and hourly_rate
 
-	cout << "Enter pay";
+	cout << "Enter hourly rate: ";
 	cin >> hourly_rate;
 
 	//Create a double variable named gross_salary
@@ -38,5 +38,8 @@ int main()
 	//Display the gross_salary variable as follows:
 	//Example ---->>>     Gross pay: 150.00   
 
-	return 0;
+	cout << "Gross pay: " << gross_salary;
+
 }
+
+return 0;
