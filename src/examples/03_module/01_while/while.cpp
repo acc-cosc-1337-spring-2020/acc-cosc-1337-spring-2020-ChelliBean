@@ -10,7 +10,7 @@ int sum_of_squares(int num)
 	int sum = 0;
 	int counter = 1;
 
-	while (counter < num)
+	while (counter <= num)
 	{
 		sum = sum + counter * counter;
 		counter = counter + 1;
