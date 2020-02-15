@@ -8,19 +8,17 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE("Test get grade points function")
 {
-	REQUIRE(get_grade_points(4) == "A");
-	REQUIRE(get_grade_points(3) == "B");
-	REQUIRE(get_grade_points(2) == "C");
-	REQUIRE(get_grade_points(1) == "D");
-	REQUIRE(get_grade_points(0) == "F");
-	REQUIRE(get_grade_points(-1) == "Error");
+	REQUIRE(get_grade_points("A") == 4);
+	REQUIRE(get_grade_points("B") == 3);
+	REQUIRE(get_grade_points("C") == 2);
+	REQUIRE(get_grade_points("D") == 1);
+	REQUIRE(get_grade_points("F") == 0);
 }
 
 TEST_CASE("GPA Calculator")
 {
-	REQUIRE(calculate_gpa(3, 12) == 4);
-	REQUIRE(calculate_gpa(3, 9) == 3);
-	REQUIRE(calculate_gpa(3, 6) == 2);
-	REQUIRE(calculate_gpa(3, 3) == 1);
-	REQUIRE(calculate_gpa(3, 0) == 0);
+	REQUIRE(calculate_gpa(12, 45) == 3.75);
+	REQUIRE(calculate_gpa(120, 390) == 3.25);
+	REQUIRE(calculate_gpa(90, 180) == 2.00);
+	REQUIRE(calculate_gpa(-1, 3) == -1);
 }
