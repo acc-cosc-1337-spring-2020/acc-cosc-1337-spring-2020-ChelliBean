@@ -1,5 +1,7 @@
+
 #include<iostream>
 #include<vector>
+#include "for_ranged.h"
 
 using std::vector;
 
@@ -37,6 +39,22 @@ void loop_string_w_auto(const std::string &str)
 	for (auto ch : str)
 	{
 		std::cout << ch << "\n";
+	}
+}
+
+void loop_string_w_auto_value(std::string & str)
+{
+	for (auto ch : str)
+	{
+		ch = 'z';
+	}
+}
+
+void loop_string_w_auto_ref(std::string & str)
+{
+	for (auto ch : str)
+	{
+		ch = 'z';
 	}
 }
 
