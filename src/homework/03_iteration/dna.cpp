@@ -46,7 +46,7 @@ string get_reverse_string(std::string dna2)
 	
 	for(auto i=dna2.length(); i!=0; i--)
 	{
-		flipdna.push_back(dna2[i]);
+		flipdna.push_back(dna2[i-1]);
 	}
 	return flipdna;
 }
@@ -68,7 +68,7 @@ string get_dna_complement(std::string dna2)
 	string complement;
 	complement = get_reverse_string(dna2);
 
-	for (auto i = 0; i <= complement.length(); ++i)
+	for (auto i = 0; i < complement.length(); ++i)
 	{
 		if(complement[i]=='A')
 		{
