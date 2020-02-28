@@ -29,4 +29,4 @@ the number
 @return vector of ints containing prime values up to a value
 */
 
-int vector_of_primes(int numbers);
+std::vector<int> vector_of_primes(int numbers);

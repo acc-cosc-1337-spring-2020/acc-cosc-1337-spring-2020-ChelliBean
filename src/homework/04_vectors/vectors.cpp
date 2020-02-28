@@ -1,4 +1,8 @@
 #include "vectors.h"
+#include<iostream>
+
+using std::cout;
+
 /*
 Write a value return function get_max_from_vector with a const reference 
 vector of intsparameter that returns the max value in a vector
@@ -29,20 +33,27 @@ given a number returns true if prime or false if not prime
 
 bool is_prime(int num)
 {
-	int  i;
-	bool isPrime = true;
-
-	for (i = 2; i <= num / 2; ++i)
+	if (num > 0)
 	{
-		if (num % i == 0)
-		{
-			isPrime = false;
-			break;
-		}
-	}
-	
+		int  i;
+		bool isPrime = true;
 
-	return isPrime;
+		for (i = 2; i <= num / 2; ++i)
+		{
+			if (num % i == 0)
+			{
+				isPrime = false;
+				break;
+			}
+		}
+
+
+		return isPrime;
+	}
+	else if (num <= 0)
+	{
+		return false;
+	}
 }
 
 /*
@@ -58,7 +69,23 @@ Make sure to use the is_prime function to determine if current
 number is prime.
 */
 
-int vector_of_primes(int numbers)
+std::vector<int> vector_of_primes(int num)
 {
+	if (num > 0)
+	{
+		std::vector<int>prime{};
 
+		for (int i = 2; i < num; ++i)
+		{
+			if (is_prime(i) == true)
+			{
+				prime.push_back(i);
+			}
+		}
+		return prime;
+	}
+	else if (num <= 0)
+	{
+		cout << "AHHHH! " << "\n";
+	}
 }
