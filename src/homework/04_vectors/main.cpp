@@ -18,20 +18,23 @@ int main()
 	int starter;
 	int num;
 
-	cout << "Enter 1 for get max or enter 2 for get primes ";
-	cin >> starter;
-
-	if (starter == 1)
+	do
 	{
-		get_max_from_vector(numbers);
-		cout << get_max_from_vector(numbers);
-	}
-	else if (starter == 2)
-	{
-		cout << "Enter a positive number ";
-		cin >> num;
-		vector_of_primes(num);
-	}
+		cout << "Enter 1 for get max or enter 2 for get primes ";
+		cin >> starter;
 
+			if (starter == 1)
+			{
+				get_max_from_vector(numbers);
+				cout << get_max_from_vector(numbers);
+			}
+			else if (starter == 2)
+			{
+				cout << "Enter a positive number ";
+				cin >> num;
+				vector_of_primes(num);
+				
+			}
+	} while (starter ==0)
 	return 0;
 }
