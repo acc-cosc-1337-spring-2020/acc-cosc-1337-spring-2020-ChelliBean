@@ -1,7 +1,7 @@
 #include "bank_account.h"
 #include<iostream>
 
-using std::cout;
+using std::cout; using std::cin;
 
 int main()
 {
@@ -9,11 +9,19 @@ int main()
 	auto balance = account.get_balance();
 	cout << "Balance is: " << balance;
 
-	cout << "Enter deposit amount: ";
+	auto amount{ 0 };
+	cout << "Enter deposit amount: \n";
 	cin >> amount;
 
-	amount.deposit(amount);
-	cout << "Balance is: " << balance;
+	try
+	{
+		account.deposit(amount);
+		cout << "Balance is: " << balance;
+	}
+	catch (Invalid e)
+	{
+		cout << e.get_error() << "\n";
+	}
 
 	return 0;
 }
