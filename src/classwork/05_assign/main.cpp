@@ -20,6 +20,13 @@ int main()
 
 	auto total{ 0 };
 
+	for(auto x: area)
+	{
+		cout << x << "\n";
+
+
+	}
+	/*
 	for (auto x : area)
 	{
 		cout << x.get_area() << "\n";
@@ -27,5 +34,6 @@ int main()
 	}
 
 	cout << total;
+	*/
 	return 0;
 }

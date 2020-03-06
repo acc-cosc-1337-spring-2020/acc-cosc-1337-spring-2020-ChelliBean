@@ -19,3 +19,10 @@ void Rect::calculate_area()
 {
 	 area = width * height;
 }
+
+std::ostream & operator<<(std::ostream & out, const Rect & area)
+{
+	// TODO: insert return statement here
+	out << "The area is : " << area.area;
+	return out;
+}
