@@ -1,4 +1,5 @@
 #include<string>
+#include<iostream>
 
 #ifndef BANK_ACCOUNT_H
 #define BANK_ACCOUNT_H
@@ -22,7 +23,6 @@ protected:
 	int balance{ 0 };
 
 private:
-	int balance{ 0 };
 	const int min_balance_to_open{ 25 };
 	static double rate;
 	static double int_rate() { return .025;  }
@@ -41,3 +41,4 @@ public:
 private:
 	std::string message;
 };
+#endif
