@@ -32,13 +32,14 @@ void TicTacToe::mark_board(int position)
 	{
 		throw Error("Out of range");
 	}
-	else
+	if(player =="")
 	{
-		throw Error("Cannot be empty");
+		throw Error("Must start game first.");
 	}
 
 	pegs[position - 1] = player;
-	 set_next_player();
+	
+	return set_next_player();
 }
 
 void TicTacToe::display_board() const
@@ -49,10 +50,10 @@ void TicTacToe::display_board() const
 	}
 }
 
-std::string TicTacToe::get_player() const
+/*std::string TicTacToe::get_player() const
 {
 	return std::string(player);
-}
+}*/
 
 void TicTacToe::set_next_player()
 {
