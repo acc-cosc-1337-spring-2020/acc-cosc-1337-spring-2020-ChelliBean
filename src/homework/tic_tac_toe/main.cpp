@@ -30,6 +30,8 @@ int main()
 				try
 				{
 					game.mark_board(position);
+					game.display_board();
+					
 				}
 				catch (Error merr)
 				{
