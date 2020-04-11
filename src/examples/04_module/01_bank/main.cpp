@@ -1,6 +1,7 @@
 #include "bank_account.h"
 #include "checking_account.h"
 #include"savings_account.h"
+#include"customer.h"
 #include<iostream>
 #include<vector>
 #include<string>
@@ -33,8 +34,26 @@ int main()
 		cout << act->get_balance() << "\n";
 	}
 
-	BankAccount a(100);
+	
+
+	/*
+	BankAccount* act=new CheckingAccount(100);
+
 	BankAccount account(500);
+	Customer cust;
+	cust.add_account(account);
+
+	/*
+
+	do you want to play again loop
+	Ttt game;
+
+	loop for mark board
+
+	game ends
+	call manager save game
+
+	*/
 	
 	cin >> account;
 	cout << account;
