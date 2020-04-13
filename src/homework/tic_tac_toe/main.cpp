@@ -22,7 +22,7 @@ int main()
 		TicTacToe game;
 
 
-		while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o")
+		while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"));
 		{
 			try
 			{
