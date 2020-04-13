@@ -9,7 +9,7 @@ using std::cout; using std::cin;
 void TicTacToeManager::save_game(const TicTacToe b)
 {
 	games.push_back(b);
-	update_winner_count(b.get_winner);
+	update_winner_count(b.get_winner());
 }
 
 void TicTacToeManager::get_winner_total(int & x, int & o, int & t)
@@ -42,7 +42,7 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 		for (auto game : manager.games)
 		{
 			out << game;
-			std::string w = game.get_winner;
+			std::string w = game.get_winner();
 			out << "the winner is: " << w << "\n";
 		}
 		
