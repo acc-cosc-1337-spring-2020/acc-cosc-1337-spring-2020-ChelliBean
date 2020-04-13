@@ -4,7 +4,20 @@ using std::cout;
 
 bool TicTacToe::game_over()
 {
-	return check_board_full();
+	if (check_column_win() == true || check_diagonal_win() == true || check_row_win() == true)
+	{
+		set_winner();
+		return true;
+	}
+	if else(check_board_full() == true)
+	{
+		winner = 'c';
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 void TicTacToe::start_game(std::string first_player)
@@ -38,28 +51,36 @@ void TicTacToe::mark_board(int position)
 		throw Error("Must start game first.");
 	}
 
-	//pegs[position - 1] = player;
+	pegs[position - 1] = player;
+	if (game_over == false)
+	{
+		set_next_player();
+	}
 
-	check_column_win();
+	/*check_column_win();
 	check_row_win();
 	check_diagonal_win();
 	set_winner();
-	return set_next_player();
+	return set_next_player();*/
 }
 
 void TicTacToe::display_board() const
+{
+}
+
+/*void TicTacToe::display_board() const
 {
 	for (int i = 0; i < 9; i += 3)
 	{
 		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
 	}
-}
+}*/
 
-std::string TicTacToe::get_winner()
+/*std::string TicTacToe::get_winner()
 {
 	cout << "The winner is: " << player << "\n";
 	return player;
-}
+}*/
 
 /*std::string TicTacToe::get_player() const
 {
@@ -180,16 +201,42 @@ bool TicTacToe::check_diagonal_win()
 
 void TicTacToe::set_winner()
 {
-	if (check_column_win() == true)
+	if (player == "X")
 	{
-		get_winner()= player;
+		winner = 'X';
 	}
-	else if (check_row_win() == true)
+	else
 	{
-		get_winner() = player;
+		winner = 'O';
 	}
-	else if (check_diagonal_win() == true)
+}
+
+std::ostream & operator<<(std::ostream & out, const TicTacToe & b)
+{
+	// TODO: insert return statement here
+	for (int i = 0; i < 9; i += 3)
 	{
-		get_winner() = player;
+		out << b.pegs[i] << "|" << b.pegs[i + 1] << "|" << b.pegs[i + 2] << "\n";
 	}
+	return out;
+}
+
+std::istream & operator>>(std::istream & in, TicTacToe & b)
+{
+	// TODO: insert return statement here
+	try
+	{
+		int position;
+		cout << "\n";
+		cout<< "Pick a spot on the board (1-9): " << "\n";
+		in >> position;
+		cout << "\n";
+		b.mark_board(position);
+		cout << "\n";
+	}
+	catch (Error e)
+	{
+		cout << e.get_message() << "\n";
+	}
+	return in;
 }

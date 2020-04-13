@@ -1,17 +1,19 @@
 //h
 #include"tic_tac_toe.h"
+#include<vector>
+#include<iostream>
 #ifndef MANAGER_H
 #define MANAGER_H
 
 class TicTacToeManager
 {
 public:
-	void save_game(const Game b);
+	void save_game(const TicTacToe b);
 	friend std::ostream& operator<<(std::ostream& out, const TicTacToeManager & manager);
-	void get_winner_total(int& o, int& w, int& t);
+	void get_winner_total(int& x, int& o, int& t);
 
 private:
-	std::vector<Game>games{};
+	std::vector<TicTacToe>games{};
 	int x_win{ 0 };
 	int o_win{ 0 };
 	int ties{ 0 };
