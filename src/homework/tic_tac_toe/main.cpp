@@ -6,12 +6,11 @@ using std::cout; using std::cin;
 
 int main() 
 {
-	auto option = 'Y';
+	std::string option = "Y";
 	TicTacToeManager manager;
-
 	do
 	{
-		std::string first_player = "Z";
+		std::string first_player = "X";
 
 		bool winner = true;
 		int x;
@@ -20,7 +19,6 @@ int main()
 
 
 		TicTacToe game;
-
 
 		while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"));
 		{
@@ -55,7 +53,7 @@ int main()
 		cout << "Y to continue: " << "\n";
 		cin >> option;
 		cout << "\n";
-	} while (option == 'Y' || option == 'y');
+	} while (option == "Y" || option == "y");
 
 	cout << manager;
 
