@@ -1,11 +1,14 @@
 #include<iostream>
 #include "tic_tac_toe.h"
 #include"tic_tac_toe_manager.h"
+#include"tic_tac_toe_3.h"
+#include"tic_tac_toe_4.h"
 
 using std::cout; using std::cin;
 
 int main() 
 {
+
 	std::string option = "Y";
 	TicTacToeManager manager;
 	do
@@ -18,7 +21,7 @@ int main()
 		int t;
 
 
-		TicTacToe game;
+		TicTacToe game(3);
 
 		while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"));
 		{
