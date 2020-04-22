@@ -1,113 +1,79 @@
+#include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
 #include<iostream>
-#include "tic_tac_toe.h"
-#include"tic_tac_toe_manager.h"
-#include"tic_tac_toe_3.h"
-#include"tic_tac_toe_4.h"
+#include<functional>
 
-using std::cout; using std::cin;
+using std::cout; using std::cin; using std::string;
 
-int main() 
+int main()
 {
-
-	std::string option = "Y";
 	TicTacToeManager manager;
+	string cont;
+	std::vector<std::reference_wrapper<TicTacToe>> games;
+
 	do
 	{
-		std::string first_player = "X";
+		int game_type;
+		cout << "\nTictactoe 3 or 4?";
+		cin >> game_type;
+		TicTacToe3 game3;
+		TicTacToe4 game4;
 
-		bool winner = true;
-		int x;
-		int o;
-		int t;
+		if (game_type == 3)
+		{
+			games.push_back(game3);
+		}
+		else if (game_type == 4)
+		{
+			games.push_back(game4);
+		}
 
+		std::reference_wrapper<TicTacToe> game = games.back();
 
-		TicTacToe game(3);
+		string player = "Y";
 
-		while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"));
+		while (!(player == "O" || player == "X"))
 		{
 			try
 			{
-				cout << "Player one enter 'X' or 'O': ";
-				cin >> first_player;
-				game.start_game(first_player);
+				cout << "Enter player: ";
+				cin >> player;
+
+				game.get().start_game(player);
 			}
 			catch (Error e)
 			{
-				cout << e.get_message() << "\n";
+				cout << e.get_message();
 			}
 		}
-		do {
-			cin >> game;
-			cout << game;
 
-			winner = game.game_over();
+		int choice = 1;
 
-		} while (winner == false);
+		do
+		{
+			try
+			{
+				cin >> game.get();
+				cout << game.get();
+			}
+			catch (Error e)
+			{
+				cout << e.get_message();
+			}
 
+		} while (!game.get().game_over());
 
-		manager.save_game(game);
-		cout << "\n";
-		cout << game;
-		cout << "\n";
-		manager.get_winner_total(x, o, t);
-		cout << "\n";
-		cout << "The winner is " << game.get_winner() << "\n";
+		manager.save_game(game.get());
 
-		cout << "Y to continue: " << "\n";
-		cin >> option;
-		cout << "\n";
-	} while (option == "Y" || option == "y");
+		cout << "\nWinner: " << game.get().get_winner() << "\n";
+
+		cout << "Enter Y to play again: ";
+		cin >> cont;
+
+	} while (cont == "Y");
 
 	cout << manager;
 
-	
-
 	return 0;
 }
-
-
-
-
-
-
-
-	/*std::string first_player;
-
-	int position;
-	int start{  };
-	char nextTurn;
-
-	do
-	{
-		try
-		{
-			game.start_game(first_player);
-
-			do
-			{
-				cout << "Pick a spot on the board (1-9): " << "\n";
-				cin >> position;
-
-				try
-				{
-					game.mark_board(position);
-					game.display_board();
-
-				}
-				catch (Error merr)
-				{
-					cout << merr.get_message();
-				}
-				cout << "Next Player press Y to continue: " << "\n";
-				cin >> nextTurn;
-
-			} while (nextTurn == 'y' && nextTurn == 'Y');
-		}
-		catch (Error blah)
-		{
-			cout << blah.get_message() << "\n";
-			cout << "Player one selcet 'X' or 'O': " << "\n";
-			cin >> first_player;
-			start = 0;
-		}
-	} while (first_player != "O" ||  first_player != "X");*/
