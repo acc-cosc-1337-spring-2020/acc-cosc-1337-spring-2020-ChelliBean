@@ -8,7 +8,7 @@ using std::cout; using std::cin; using std::string;
 
 int main()
 {
-	TicTacToeManager manager;
+	std::unique_ptr<TicTacToeManager> manager;
 	string cont;
 	std::vector<std::reference_wrapper<TicTacToe>> games;
 
@@ -17,8 +17,8 @@ int main()
 		int game_type;
 		cout << "\nTictactoe 3 or 4?";
 		cin >> game_type;
-		TicTacToe3 game3;
-		TicTacToe4 game4;
+		std::unique_ptr<TicTacToe3> game3;
+		std::unique_ptr<TicTacToe4> game4;
 
 		if (game_type == 3)
 		{
@@ -64,7 +64,7 @@ int main()
 
 		} while (!game.get().game_over());
 
-		manager.save_game(game.get());
+		manager->save_game(game.get());
 
 		cout << "\nWinner: " << game.get().get_winner() << "\n";
 

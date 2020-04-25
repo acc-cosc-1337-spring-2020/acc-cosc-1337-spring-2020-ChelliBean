@@ -6,10 +6,15 @@ using std::cout; using std::cin;
 
 //cpp
 
-void TicTacToeManager::save_game(const TicTacToe b)
+/*void TicTacToeManager::save_game(const TicTacToe b)
 {
 	games.push_back(b);
 	update_winner_count(b.get_winner());
+}*/
+
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& b)
+	:
+{
 }
 
 void TicTacToeManager::get_winner_total(int & x, int & o, int & t)
