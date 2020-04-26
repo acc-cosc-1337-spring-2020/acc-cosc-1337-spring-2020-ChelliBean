@@ -14,8 +14,8 @@ public:
 	void get_winner_total(int& x, int& o, int& t);
 
 private:
-	std::vector<TicTacToe> games{};
-	std::vector<std::unique_ptr<TicTacToe>>pegs;
+	std::vector<std::unique_ptr<TicTacToe>> games{};
+	
 	int x_win{ 0 };
 	int o_win{ 0 };
 	int ties{ 0 };
