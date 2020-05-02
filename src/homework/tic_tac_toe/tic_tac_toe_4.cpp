@@ -11,6 +11,10 @@ else
 false
 */
 
+TicTacToe4::TicTacToe4(std::vector<string> p, string winner)
+{
+}
+
 bool TicTacToe4::check_column_win()
 {
 	if (pegs[0] == "X" && pegs[4] == "X" && pegs[8] == "X" && pegs[12] == "X")

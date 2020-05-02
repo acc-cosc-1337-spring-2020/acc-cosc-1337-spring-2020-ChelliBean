@@ -3,13 +3,16 @@
 #include<iostream>
 #ifndef TICTACTOE_H
 #define TICTACTOE_H
-
+ 
+using namespace std;
 
 //h
 
 class TicTacToe
 {
 public:
+	TicTacToe::TicTacToe(std::vector<string> p, string win);
+
 	TicTacToe(int s) : pegs(s*s," ") {}
 
 	bool game_over();
@@ -23,6 +26,8 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& out, const TicTacToe& b);
 	friend std::istream& operator>>(std::istream& in, TicTacToe& b);
+
+	std::vector<std::string> get_pegs()const { return pegs; }
 
 protected:
 

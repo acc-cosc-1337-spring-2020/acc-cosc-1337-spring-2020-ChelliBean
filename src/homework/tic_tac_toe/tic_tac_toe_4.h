@@ -8,6 +8,7 @@ class TicTacToe4 : public TicTacToe
 public:
 
 	//TicTacToe4();
+	TicTacToe4(std::vector<string> p, string winner);
 	TicTacToe4() : TicTacToe(4) {}
 
 	

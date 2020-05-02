@@ -2,6 +2,11 @@
 //cpp
 using std::cout;
 
+TicTacToe::TicTacToe(std::vector<string> p, string win)
+	:pegs{p}, winner{win}
+{
+}
+
 bool TicTacToe::game_over()
 {
 	if (check_column_win() == true || check_diagonal_win() == true || check_row_win() == true)
@@ -88,6 +93,7 @@ void TicTacToe::clear_board()
 		peg = " ";
 	}
 }
+
 
 bool TicTacToe::check_column_win()
 {
