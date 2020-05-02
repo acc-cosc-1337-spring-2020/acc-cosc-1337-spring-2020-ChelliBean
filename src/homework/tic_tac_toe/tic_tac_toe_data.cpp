@@ -23,7 +23,7 @@ std::vector<std::unique_ptr<TicTacToe>> TicTacToeData::get_games()
 {
 	std::vector<std::unique_ptr<TicTacToe>>boards;
 	
-	ofstream vecFile("boards.txt")
+	ofstream vecFile("boards.txt");
 
 	return std::vector<std::unique_ptr<TicTacToe>>();
 }
